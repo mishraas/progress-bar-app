@@ -29,6 +29,7 @@
 <script>
 import Vue from 'vue'
 import progressBarService from '../services/progress-bar-service'
+import TWEEN from '@tweenjs/tween.js'
 
 export default {
   name: 'ProgressBar',
@@ -57,7 +58,23 @@ export default {
       if (newValue < 0) {
         newValue = 0
       }
-      Vue.set(this.barConfig.bars, this.selectedBar, newValue)
+      let vm = this
+      function animate () {
+        if (TWEEN.update()) {
+          requestAnimationFrame(animate)
+        }
+      }
+      let tweenObj = {tweeningNumber: barValue}
+      let tween = new TWEEN.Tween(tweenObj)
+        .easing(TWEEN.Easing.Quadratic.Out)
+        .to({ tweeningNumber: newValue }, 500)
+
+      tween.onUpdate(function () {
+        Vue.set(vm.barConfig.bars, vm.selectedBar, tweenObj.tweeningNumber.toFixed(0))
+        console.log(tweenObj.tweeningNumber)
+      })
+      .start()
+      animate()
     }
   },
   props: {
