@@ -3,7 +3,8 @@
 This application is a sample implementation development against problem statement explained [here](./problem-statement.html).
 
 ## Need a quick demo?
- - Check out the [demo](./demo/demo.mp4) and [code coverage report](./demo/code_coverage_report.jpg) for gaining a quick acess to the look and feel of the application.
+ - Check out the [demo](./demo/demo.gif) and [code coverage report](./demo/code_coverage_report.jpg) for gaining a quick acess to the look and feel of the application.
+ ![](./demo/demo.gif)
 
 ## What are the additonal features offered?
 - Developed in NodeJS, NPM, VueJS, webpack, Mocha, Karma, Selenium, phantomJS, ES6, babel and such latest technology stack.
